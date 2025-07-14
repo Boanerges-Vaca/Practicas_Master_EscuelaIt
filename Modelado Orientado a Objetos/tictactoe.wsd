@@ -1,0 +1,58 @@
+@startuml "TicTacToe"
+
+class TicTacToe
+
+class Turn
+class Player
+Class Goal
+class InverterDiagonal #red
+class Row #red
+class Column #red
+class MainDiagonal #red
+class Action
+class Put 
+class Move
+class Board
+class Square{
+
+}
+class Coordinate
+class Piece
+class Color
+class X
+class O
+
+TicTacToe *--> Turn
+TicTacToe *--> Player
+TicTacToe *-> Board
+Turn --> Player
+Player --> Board
+Player o--> Goal
+Goal <|-- InverterDiagonal
+Goal <|-- Row
+Goal <|-- Column
+Goal <|-- MainDiagonal
+Action <|-- Put
+Action <|-- Move
+Board *--> "3x3" Square
+Square *--> Coordinate
+Square o--> "0..1" Piece
+Piece *--> Color
+Color <|-- X
+Color <|-- O
+Player *--> "3..0" Piece
+Player --> Color
+Goal ..> "3" Put
+Goal ..> "*" Move
+Action ..> Piece
+Move ..>"Origin" Square
+Action ..> Square: target
+
+note left of TicTacToe 
+ <b>Practica: Cambios al diagrama </b>
+1. Que el el diagrama aparescan los conceptos (Row, Column, MainDiagonal, InverterDiagonal) pero no como clases.
+2. Acition, Put, Move.. que no sean clases, no quiero el concepto movimiento pero si mover en alguna clase.
+3. Añadir o quitar clases por que a ti apetese añadir o quietar por que a ti te parece irrelevante.
+end note
+
+@enduml
