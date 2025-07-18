@@ -1,7 +1,6 @@
 @startuml "TicTacToe"
 
 class TicTacToe
-
 class Turn
 class Player
 Class Goal

@@ -1,0 +1,33 @@
+@startuml "TicTacToe"
+
+class TicTacToe
+class Turn
+class Player
+class Board
+class Square{
+}
+class Coordinate{
+
+    row()
+    column()
+    mainDiagonal()
+    inverterDiagonal()
+}
+class Piece
+enum Type{
+    X
+    O
+}
+
+TicTacToe *--> "2" Player
+TicTacToe *-> Board
+Board *--> "3x3" Square
+Square *--> Coordinate
+Piece *--> Type
+Player o-->"5" Piece
+Player --> Turn
+Coordinate ..> Board
+Turn ..> "put" Square
+Square o--> Piece
+
+@enduml
