@@ -1,0 +1,35 @@
+@startuml "Marcador de Tenis"
+
+class TennisScoreboard
+abstract class Competitor
+class Player
+class Team
+class Point
+class Game
+Class Set
+class Match
+class Tiebreak
+enum Role{
+    Server,
+    Receiver
+}
+enum State{
+    douce,
+    advantage
+}
+
+Match o--> "2x3 or 3x5" Set
+TennisScoreboard *--> Match
+Game o--> "4 or +2"Point
+Set o--> "6-7" Game
+Game <|-- Tiebreak
+Game -- State
+Competitor -- Role
+Competitor <|-- Player
+Competitor <|-- Team
+Match *-- Score
+Score -- "2" Competitor
+Score -- "*" Set
+Score -- Game
+
+@enduml
