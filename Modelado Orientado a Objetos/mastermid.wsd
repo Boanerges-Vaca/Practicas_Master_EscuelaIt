@@ -1,0 +1,43 @@
+@startuml "Modelo Mastermid"
+    class Mastermid
+    class Player 
+    class DecoderPlayer
+    class EncoderPlayer
+    class Board{
+        CombinateSuccess()
+    }
+    class Chip
+
+    class Turn
+    class Combination
+    class CombinationSecret
+    class CombinationChecked
+
+    enum ColorChecked{
+        White
+        Black
+    }
+    enum Color{
+        Yellow
+        Green
+        Red
+        Blue
+        ...
+    }
+
+    Mastermid *-down-> "2" Player
+    Mastermid *-down-> Board
+    Combination <|-- CombinationChecked
+    Combination <|-- CombinationSecret
+    Board o--> CombinationSecret
+    Board o--> "0..15" Combination
+    Board o--> "0..15" CombinationChecked   
+    Combination *--> "4" Chip
+    Chip *--> Color
+    CombinationChecked *--> ColorChecked
+    Player <|-- EncoderPlayer
+    Player <|-- DecoderPlayer
+    Player -->"*" Turn
+    Turn ..> Combination
+
+@enduml

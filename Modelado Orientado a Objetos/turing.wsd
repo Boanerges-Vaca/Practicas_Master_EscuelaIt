@@ -1,0 +1,23 @@
+@startuml "Maquina de Turing"
+    class Cinta
+    class Celda
+    class Simbolo
+    class Cabezal
+    class TablaInstrucciones
+    class Estado
+    enum Movimiento{
+        Left,
+        Right
+    }
+
+    Cinta *--> "*" Celda
+    Celda o--> Simbolo
+    Cabezal --> Cinta
+    TablaInstrucciones *--> Instruccion
+    Cabezal ..> Estado
+    Cabezal --> TablaInstrucciones
+    Instruccion *--> "2" Estado
+    Instruccion *--> Simbolo
+    Instruccion *--> Movimiento
+
+@enduml
