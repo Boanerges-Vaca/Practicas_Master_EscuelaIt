@@ -1,0 +1,17 @@
+@startuml "Personal Estatutario"
+    class PersonalEstaturario
+    PersonalEstaturario <|-- Persona
+    Persona o-- Nombramiento
+    Nombramiento <|-- Fijo
+    Nombramiento <|-- Temporal
+    Nombramiento <|-- Sustituto
+
+    Persona o-- Titulo
+    Titulo <|-- Universitario
+    Titulo <|-- Profesional
+    Titulo <|-- Otro
+
+    Persona <|-- Sanitarias 
+    Persona <|-- Gestion
+
+@enduml
